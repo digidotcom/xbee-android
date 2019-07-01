@@ -1,0 +1,566 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/device_info_fragment_title"
+        android:textColor="@color/dark_gray"
+        android:textSize="100sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="48"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="25dp">
+
+                <ImageView
+                    android:id="@+id/xbee_image"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/blank_space_1"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="0dp"
+                    android:contentDescription="@string/xbee_device"
+                    android:padding="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/xbee_module_flat" />
+
+                <TextView
+                    android:id="@+id/connection_parameters"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/xbee_image"
+                    android:text="@string/connection_information"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="55sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/blank_space_1"
+                    android:layout_alignTop="@+id/port_label"
+                    android:layout_below="@id/connection_parameters"
+                    android:layout_toEndOf="@id/xbee_image"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:id="@id/port_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/connection_parameters"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/xbee_image"
+                    android:paddingTop="15dp"
+                    android:text="@string/serial_port"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/port_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/connection_parameters"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/Black"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/baud_rate_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/port_label"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@id/xbee_image"
+                    android:text="@string/baud_rate"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/baud_rate_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/port_label"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/Black"
+                    android:textSize="35sp" />
+
+                <Button
+                    android:id="@+id/disconnect_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/baud_rate_text"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/button_red"
+                    android:paddingBottom="7dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/white"
+                    android:textSize="45sp" />
+
+                <View
+                    android:id="@id/blank_space_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/disconnect_button" />
+
+                <TextView
+                    android:id="@+id/basic_parameters"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/disconnect_button"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/basic_information"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="55sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/mac_label"
+                    android:layout_alignTop="@+id/firmware_label"
+                    android:layout_below="@id/basic_parameters"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:id="@id/firmware_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/basic_parameters"
+                    android:layout_marginStart="20dp"
+                    android:paddingTop="15dp"
+                    android:text="@string/firmware_version"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/firmware_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/basic_parameters"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/Black"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/hardware_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/firmware_label"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/hardware_version"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/hardware_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/firmware_label"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/Black"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/protocol_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/hardware_label"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/xbee_protocol"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/protocol_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/hardware_label"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/Black"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@id/mac_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/protocol_label"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/mac_address"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/mac_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/protocol_label"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textColor="@color/Black"
+                    android:textSize="35sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/dark_gray"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_weight="50">
+
+            <TextView
+                android:id="@+id/parameters_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/device_parameters"
+                android:textColor="@color/dark_gray"
+                android:textSize="55sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/blank_space_2"
+                android:layout_alignTop="@+id/node_identifier_label"
+                android:layout_below="@id/parameters_title"
+                android:background="@color/light_gray" />
+
+            <TextView
+                android:id="@id/node_identifier_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/parameters_title"
+                android:layout_marginStart="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/node_identifier"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/node_identifier_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/parameters_title"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/node_identifier_button"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@id/node_identifier_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/parameters_title"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pan_id_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/node_identifier_label"
+                android:layout_marginStart="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/pan_id"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/pan_id_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/node_identifier_label"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/pan_id_button"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@id/pan_id_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/node_identifier_label"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/dest_address_high_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pan_id_label"
+                android:layout_marginStart="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/destination_address_high"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/dest_address_high_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pan_id_label"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/dest_address_high_button"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@id/dest_address_high_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/pan_id_label"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/dest_address_low_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dest_address_high_text"
+                android:layout_marginStart="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/destination_address_low"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/dest_address_low_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dest_address_high_text"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/dest_address_low_button"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@id/dest_address_low_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/dest_address_high_text"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/node_discovery_time_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dest_address_low_text"
+                android:layout_marginStart="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/node_discovery_time"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/node_discovery_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dest_address_low_text"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/node_discovery_time_button"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@id/node_discovery_time_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/dest_address_low_text"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/io_sampling_rate_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/node_discovery_time_label"
+                android:layout_marginStart="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/io_sampling_rate"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/io_sampling_rate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/node_discovery_time_label"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/io_sampling_rate_button"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@id/io_sampling_rate_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/node_discovery_time_label"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <View
+                android:id="@id/blank_space_2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@id/io_sampling_rate_label" />
+
+            <Button
+                android:id="@+id/read_other_param_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/blank_space_2"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/read_other_param"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/change_other_param_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/blank_space_2"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@id/read_other_param_button"
+                android:background="@drawable/button"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/change_other_param"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="0dp"
+                android:layout_toStartOf="@+id/refresh_button"
+                android:textColor="@color/red"
+                android:textSize="28sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@id/refresh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/button"
+                android:paddingBottom="7dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/refresh"
+                android:textColor="@color/white"
+                android:textSize="45sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

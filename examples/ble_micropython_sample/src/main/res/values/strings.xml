@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">XBee BLE MicroPython Sample</string>
+
+    <string name="select_device">Select your XBee device</string>
+    <string name="location_permission_needed">This application needs the location permission to scan for Bluetooth devices</string>
+    <string name="unknown_name">&lt;Unknown&gt;</string>
+    <string name="mac_addr">MAC: %1$s</string>
+    <string name="enter_password">Enter Bluetooth password</string>
+    <string name="invalid_password">Invalid password, please try again</string>
+    <string name="connecting_device_title">Connecting to device</string>
+    <string name="connecting_device_description">Please wait while connecting to the selected XBee device...</string>
+    <string name="error_connecting_title">Error connecting</string>
+    <string name="error_connecting_description">Could not connect to the selected XBee device: %1$s</string>
+
+    <string name="temperature">TEMPERATURE</string>
+    <string name="humidity">HUMIDITY</string>
+    <string name="unit_temperature">ºC</string>
+    <string name="unit_humidity">% RH</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="refresh_rate">Refresh rate: </string>
+
+    <string-array name="refresh_rate_array">
+        <item>1 second</item>
+        <item>2 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>60 seconds</item>
+    </string-array>
+
+    <string name="error_waiting_response_title">Response not receive</string>
+    <string name="error_waiting_response_description">Could not communicate with MicroPython. Please ensure you have the appropriate application running on it.</string>
+
+    <string name="disconnect_device_title">Disconnect device</string>
+    <string name="disconnect_device_description">Do you want to disconnect the XBee device?</string>
+
+    <string name="connection_lost_title">Device disconnected</string>
+    <string name="connection_lost_description">Bluetooth connection lost with the device.</string>
+</resources>

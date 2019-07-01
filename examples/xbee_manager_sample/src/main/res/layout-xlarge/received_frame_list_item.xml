@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/remote_xbee_list_selector"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="5dp">
+    <!-- Date-->
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:textColor="#343434"
+        android:textSize="25sp" />
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator_1"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/date_text"
+        android:background="#343434" />
+    <!-- Packet type -->
+    <TextView
+        android:id="@+id/packet_type_text"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/separator_1"
+        android:textColor="#343434"
+        android:textSize="25sp" />
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator_2"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/packet_type_text"
+        android:background="#343434" />
+    <!-- Source address  -->
+    <TextView
+        android:id="@+id/source_address_text"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/separator_2"
+        android:textColor="#343434"
+        android:textSize="25sp" />
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator_3"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/source_address_text"
+        android:background="#343434" />
+    <!--  PAcket data -->
+    <TextView
+        android:id="@+id/packet_data_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@id/separator_3"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#343434"
+        android:textSize="25sp" />
+</RelativeLayout>

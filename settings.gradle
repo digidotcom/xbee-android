@@ -1,1 +1,6 @@
-include ':xbee_android_library'
+include ':xbee_android_library',
+        ':examples:ble_configuration_sample',
+        ':examples:ble_microcontroller_sample',
+        ':examples:ble_micropython_sample',
+        ':examples:relay_console_sample',
+        ':examples:xbee_manager_sample'

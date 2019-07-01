@@ -1,0 +1,203 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:orientation="horizontal"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/panel"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/xbee_device_manager"
+            android:textColor="@color/dark_gray"
+            android:textSize="100sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_margin="80dp"
+                android:layout_weight="40"
+                android:contentDescription="@string/xbee_device"
+                android:scaleType="fitCenter"
+                android:src="@drawable/xbee_module_flat" />
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/dark_gray"
+                tools:ignore="ContentDescription" />
+
+            <RelativeLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30sp"
+                android:layout_marginTop="10sp"
+                android:layout_weight="58">
+
+                <TextView
+                    android:id="@+id/connect_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_connection"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="55sp" />
+
+                <TextView
+                    android:id="@+id/connect_description"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/connect_title"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/connect_description"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/serial_port_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/connect_description"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/select_serial_port"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="40sp" />
+
+                <RadioGroup
+                    android:id="@+id/serial_port_group"
+                    android:layout_width="700dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/serial_port_title"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/light_gray"
+                    android:padding="10dp">
+
+                    <RadioButton
+                        android:id="@+id/usb_host_button"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/use_usb_host"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="30sp" />
+
+                    <RadioButton
+                        android:id="@+id/usb_serial_button"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/use_serial_port"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="30sp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/serial_port_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="@string/serial_port"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="30sp" />
+
+                        <Spinner
+                            android:id="@+id/serial_port_spinner"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dip"
+                            android:enabled="false"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/baud_rate_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/serial_port_group"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/select_baud_rate"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="40sp" />
+
+                <LinearLayout
+                    android:layout_width="700dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/baud_rate_title"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/light_gray"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/baud_rate_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:text="@string/baud_rate"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="30sp" />
+
+                    <Spinner
+                        android:id="@+id/baud_rate_spinner"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dip"
+                        android:textSize="30sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/error_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toStartOf="@+id/connect_button"
+                    android:textColor="@color/red"
+                    android:textSize="30sp"
+                    android:textStyle="italic" />
+
+                <Button
+                    android:id="@id/connect_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button"
+                    android:paddingBottom="7dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/connect"
+                    android:textColor="@color/white"
+                    android:textSize="45sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

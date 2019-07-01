@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Blue colors -->
+    <color name="blue_etherios">#007AC9</color>
+    <color name="dark_blue">#6DA7D4</color>
+    <color name="light_blue">#CEDDE8</color>
+
+    <color name="background">#EFEFEF</color>
+    <color name="light_gray">#DDDDDD</color>
+    <color name="panel">#EAEAEA</color>
+    <color name="panel_border">#CDCDCD</color>
+    
+    <color name="menu_border">#DDDDDD</color>
+    <color name="menu_background">#CCCCCC</color>
+    
+    <color name="green_digi">#009e58</color>
+    <color name="orange_etherios">#ff6319</color>
+    <color name="gray_etherios">#4f5454</color>
+    
+    <color name="black">#000000</color>
+    <color name="red">#A84848</color>
+    
+    <!-- Histograms -->
+    <color name="blue">#316893</color>
+    <color name="green">#247926</color>
+    <color name="orange">#bd5d3b</color>
+    
+    <color name="White">#ffffff</color>
+    <color name="Black">#000000</color>
+    <color name="DarkGray">#474747</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FF979797</color>
+    <color name="dark_gray">#FF585858</color>
+    <color name="dark_green">#FF076a27</color>
+    <color name="dark_red">#FFbc0000</color>
+    <color name="purple">#FFb400f0</color>
+    <color name="dark_purple">#FF8600b2</color>
+    <color name="yellow">#FFdcaa2c</color>
+    <color name="dark_yellow">#FFb88e25</color>
+    <color name="transparent">#00000000</color>
+    <color name="time_color">#f9c538</color>
+    <color name="dark_maroon">#FF752727</color>
+    <color name="maroon">#FFc45151</color>
+    <color name="app_background">#404040</color>
+    <color name="light_background">#dddddd</color>
+    <color name="dark_background">#767676</color>
+    <color name="etherios_blue">#1B75BB</color>
+    <color name="etherios_dark_blue">#135486</color>
+    <color name="etherios_orange">#FF6319</color>
+    <color name="disabled_gray">#c1c1c1</color>
+    <color name="light_yellow">#f0e588</color>
+    <color name="very_dark_gray">#4f5454</color>
+</resources>

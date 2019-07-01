@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XBee Manager Sample</string>
+    <!-- Actions -->
+    <string name="select_serial_port">- Select the serial connection to use</string>
+    <string name="select_baud_rate">- Select the connection baud rate</string>
+    <!-- Buttons -->
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="refresh">Refresh</string>
+    <string name="change">Change&#8230;</string>
+    <string name="read_other_param">Read Other Param&#8230;</string>
+    <string name="change_other_param">Change Other Param&#8230;</string>
+    <string name="read_other_param_short">Read Other&#8230;</string>
+    <string name="change_other_param_short">Change Other&#8230;</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="discover">Discover</string>
+    <string name="clear">Clear</string>
+    <string name="send_text_data">Send Text Data&#8230;</string>
+    <string name="send_hex_data">Send Hex Data&#8230;</string>
+    <string name="remove">Remove</string>
+    <!-- Parameters -->
+    <string name="serial_port">Serial Port: </string>
+    <string name="baud_rate">Baud Rate: </string>
+    <string name="use_usb_host">Use Android USB Host Interface</string>
+    <string name="use_serial_port">Use Serial Port Interface</string>
+    <string name="firmware_version">Firmware Version: </string>
+    <string name="hardware_version">Hardware Version: </string>
+    <string name="xbee_protocol">XBee Protocol: </string>
+    <string name="mac_address">MAC Address: </string>
+    <string name="node_identifier">Node Identifier: </string>
+    <string name="node_identifier_short">Node ID: </string>
+    <string name="pan_id">Pan ID: </string>
+    <string name="node_discovery_time">Node Discovery Time (ms): </string>
+    <string name="node_discovery_time_short">Discovery Time (ms): </string>
+    <string name="destination_address_high">Destination Address High: </string>
+    <string name="destination_address_low">Destination Address Low: </string>
+    <string name="destination_address_high_short">Dest. Addr. High: </string>
+    <string name="destination_address_low_short">Dest. Addr. Low: </string>
+    <string name="io_sampling_rate">IO Sampling Rate Time (ms): </string>
+    <string name="io_sampling_rate_short">Sampling Time (ms): </string>
+    <string name="received_date">Date Received: </string>
+    <string name="received_date_short">Date: </string>
+    <string name="type">Packet Type: </string>
+    <string name="type_short">Type: </string>
+    <string name="source_address">Source Address: </string>
+    <string name="source_address_short">Source: </string>
+    <string name="packet_data">Packet Data</string>
+    <!-- Table Headers -->
+    <string name="header_date">Date</string>
+    <string name="header_time">Time</string>
+    <string name="header_type">Packet Type</string>
+    <string name="header_source_address">Source Address</string>
+    <string name="header_packet_data">Packet Data</string>
+    <!-- Enumerations -->
+    <string-array name="baud_rates">
+        <item >1200</item>
+        <item >2400</item>
+        <item >4800</item>
+        <item >9600</item>
+        <item >19200</item>
+        <item >38400</item>
+        <item >57600</item>
+        <item >115200</item>
+        <item >230400</item>
+        <item >460800</item>
+        <item >921600</item>
+    </string-array>
+    <string name="no_ports_available">No ports available</string>
+    <!-- Dialog titles -->
+    <string name="connect_dialog_title">Connecting&#8230;</string>
+    <string name="reading_dialog_title">Reading parameters&#8230;</string>
+    <string name="writing_dialog_title">Writing parameter&#8230;</string>
+    <string name="sending_dialog_title">Sending data&#8230;</string>
+    <string name="edit_dialog_title">Edit parameter</string>
+    <string name="read_dialog_title">Read parameter</string>
+    <string name="discovering_dialog_title">Discovering devices</string>
+    <string name="send_data_dialog_title">Send Data</string>
+    <!-- Dialog texts -->
+    <string name="connect_dialog_text">Establishing connection with XBee device, please wait.</string>
+    <string name="reading_dialog_text">Reading XBee device parameters, please wait.</string>
+    <string name="writing_dialog_text">Writing XBee device parameter, please wait.</string>
+    <string name="sending_dialog_text">Sending data to remote device, please wait.</string>
+    <string name="discovering_dialog_text">Discovering XBee Devices in the Network, please wait.</string>
+    <string name="edit_dialog_text">Enter the parameter value:</string>
+    <string name="edit_dialog_param_text">Enter the name of the parameter:</string>
+    <string name="send_data_dialog_string_text">Enter the text data to send:</string>
+    <string name="send_data_dialog_hexadecimal_text">Enter the hexadecimal data to send:</string>
+    <!-- Titles -->
+    <string name="xbee_device_manager">XBee Device Manager</string>
+    <string name="device_connection">Device Connection</string>
+    <string name="device_parameters">Device Parameters</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="connection_information">Connection</string>
+    <string name="device_info_fragment_title">XBee Device Info</string>
+    <string name="device_discovery_fragment_title">Remote XBee Devices</string>
+    <string name="frames_fragment_title">Received XBee Data</string>
+    <string name="remote_devices_title">Remote Devices</string>
+    <string name="remote_devices_title_short">Remotes</string>
+    <string name="received_xbee_packets_title">Received XBee Packets</string>
+    <string name="selected_remote_device_title">Selected Remote Device</string>
+    <string name="selected_xbee_packet_title">Selected XBee Packet</string>
+    <string name="send_data_title">Send Data</string>
+    <!-- Descriptions -->
+    <string name="connect_description">Configure your XBee Device connection parameters before opening the connection and start interacting with the device.</string>
+    <string name="parameters_description">From here you can configure some of the parameters of your XBee Device.</string>
+    <string name="remote_devices_found"> remote devices found</string>
+    <string name="packets_received"> XBee packets received</string>
+    <string name="packet_suffix"> Packet</string>
+    <string name="xbee_device">XBee device</string>
+    <!-- Temp strings -->
+    <string name="initial_mac">0013A20040123456</string>
+    <string name="initial_ni">ZB-3-ARTICUNO</string>
+    <string name="initial_16addr">1234</string>
+</resources>

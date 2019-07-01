@@ -21,12 +21,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // TODO: remove this before releasing the library.
+    api fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     // TODO: Revisit these dependencies before releasing the library.
-    //implementation 'com.digi.xbee:xbee-java-library:1.2.1'
+    //api 'com.digi.xbee:xbee-java-library:1.2.1'
     implementation 'org.slf4j:slf4j-simple:1.6.1'
-    implementation name: 'xbee-java-library-1.2.1'
     implementation 'com.digi:android-sdk-addon:3'
     testImplementation 'org.mockito:mockito-all:1.10.19'
     testImplementation 'org.powermock:powermock-module-junit4:1.6.6'

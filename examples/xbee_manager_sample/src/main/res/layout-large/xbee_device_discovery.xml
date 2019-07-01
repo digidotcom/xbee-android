@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/device_discovery_fragment_title"
+        android:textColor="@color/dark_gray"
+        android:textSize="45sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="48">
+
+            <TextView
+                android:id="@+id/remote_devices_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="0px"
+                android:text="@string/remote_devices_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/discover_button"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_alignTop="@id/remote_devices_title"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toStartOf="@+id/clear_button"
+                android:background="@drawable/button"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/discover"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/remote_devices_title"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_red"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/clear"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/remote_devices_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/remote_devices_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <ListView
+                android:id="@+id/remote_devices_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/remote_devices_text"
+                android:layout_marginTop="5dp"
+                android:background="@color/light_gray"
+                android:choiceMode="singleChoice"
+                android:overScrollMode="never" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/dark_gray" />
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15sp"
+            android:layout_weight="51">
+
+            <TextView
+                android:id="@+id/remote_device_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/selected_remote_device_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/mac_label"
+                android:layout_alignTop="@+id/node_identifier_label"
+                android:layout_below="@id/remote_device_title"
+                android:background="@color/light_gray" />
+
+            <TextView
+                android:id="@id/node_identifier_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/remote_device_title"
+                android:layout_marginStart="10dp"
+                android:paddingTop="3dp"
+                android:text="@string/node_identifier"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/node_identifier_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/remote_device_title"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toStartOf="@+id/node_identifier_button"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@id/node_identifier_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/remote_device_title"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/button"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/change"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/firmware_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/node_identifier_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/firmware_version"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/firmware_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/node_identifier_label"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/hardware_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/firmware_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/hardware_version"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/hardware_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/firmware_label"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/protocol_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hardware_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/xbee_protocol"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/protocol_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/hardware_label"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@id/mac_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/protocol_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:paddingBottom="3dp"
+                android:text="@string/mac_address"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/mac_address_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/protocol_label"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="1dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/read_other_param_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/mac_label"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/button"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/read_other_param"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/change_other_param_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/mac_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toEndOf="@id/read_other_param_button"
+                android:background="@drawable/button"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/change_other_param"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/refresh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/mac_label"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/button"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/refresh"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/send_data_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/refresh_button"
+                android:layout_marginTop="2dp"
+                android:text="@string/send_data_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="35sp" />
+
+            <View
+                android:id="@+id/horizontal_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/send_data_title"
+                android:background="@color/dark_gray" />
+
+            <Button
+                android:id="@+id/send_text_data_button"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_below="@id/horizontal_separator"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/button"
+                android:enabled="false"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/send_text_data"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/send_hex_data_button"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_below="@id/horizontal_separator"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toEndOf="@id/send_text_data_button"
+                android:background="@drawable/button"
+                android:enabled="false"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/send_hex_data"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

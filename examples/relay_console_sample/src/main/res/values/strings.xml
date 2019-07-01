@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">XBee Relay Console Sample</string>
+
+    <string name="select_device">Select your XBee device</string>
+    <string name="location_permission_needed">This application needs the location permission to scan for Bluetooth devices</string>
+    <string name="unknown_name">&lt;Unknown&gt;</string>
+    <string name="mac_addr">MAC: %1$s</string>
+    <string name="enter_password">Enter Bluetooth password</string>
+    <string name="invalid_password">Invalid password, please try again</string>
+    <string name="connecting_device_title">Connecting to device</string>
+    <string name="connecting_device_description">Please wait while connecting to the selected XBee device...</string>
+    <string name="error_connecting_title">Error connecting</string>
+    <string name="error_connecting_description">Could not connect to the selected XBee device: %1$s</string>
+
+    <string name="received_udr">Received User Data Relay messages</string>
+    <string name="send_udr">Send User Data Relay</string>
+    <string name="dest_interface">Destination interface:</string>
+    <string name="data">Data:</string>
+    <string name="send">Send</string>
+    <string name="send_success">Message sent successfully</string>
+    <string name="send_error">Error sending the message: %1$s</string>
+    <string name="udr_format">[%1$s] %2$s</string>
+
+    <string name="disconnect_device_title">Disconnect device</string>
+    <string name="disconnect_device_description">Do you want to disconnect the XBee device?</string>
+
+    <string name="connection_lost_title">Device disconnected</string>
+    <string name="connection_lost_description">Bluetooth connection lost with the device.</string>
+</resources>

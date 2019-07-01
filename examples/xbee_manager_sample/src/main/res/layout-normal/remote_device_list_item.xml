@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="@drawable/remote_xbee_list_selector"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="3dp">
+    <!--  Left side image -->
+    <LinearLayout
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="5dp"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/xbee_device"
+            android:src="@drawable/xbee_module_flat" />
+    </LinearLayout>
+    <!-- MAC Address-->
+    <TextView
+        android:id="@+id/mac_address_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/image"
+        android:layout_toEndOf="@id/image"
+        android:text="@string/initial_mac"
+        android:textColor="#040404"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <!-- Node Identifier -->
+    <TextView
+        android:id="@+id/node_identifier_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mac_address_text"
+        android:layout_toEndOf="@+id/image"
+        android:text="@string/initial_ni"
+        android:textColor="#343434"
+        android:textSize="12sp" />
+    <!-- 16-Bit Address -->
+    <TextView
+        android:id="@+id/address_16_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/node_identifier_text"
+        android:layout_toEndOf="@+id/image"
+        android:text="@string/initial_16addr"
+        android:textColor="#343434"
+        android:textSize="12sp" />
+    <!-- Remove  -->
+    <ImageButton
+        android:id="@+id/remove_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/remove"
+        android:scaleType="centerInside"
+        android:src="@drawable/remove_xbee" />
+
+</RelativeLayout>
