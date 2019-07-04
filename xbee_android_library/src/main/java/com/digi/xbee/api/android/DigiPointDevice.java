@@ -15,7 +15,6 @@
  */
 package com.digi.xbee.api.android;
 
-import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 
 import com.digi.xbee.api.android.connection.AndroidUSBPermissionListener;
@@ -117,52 +116,5 @@ public class DigiPointDevice extends com.digi.xbee.api.DigiPointDevice {
      */
     public DigiPointDevice(Context context, String port, SerialPortParameters parameters) {
         super(XBee.createConnectiontionInterface(context, port, parameters));
-    }
-
-    /**
-     * Class constructor. Instantiates a new {@code DigiPointDevice} object for
-     * Android with the given parameters.
-     *
-     * <p>This constructor uses the Android Bluetooth Low Energy API to
-     * communicate with the devices.</p>
-     *
-     * <p>The Bluetooth password must be provided before calling the
-     * {@link #open()} method, either through this constructor or the
-     * {@link #setBluetoothPassword(String)} method.</p>
-     *
-     * @param context The Android application context.
-     * @param bleDevice Bluetooth device.
-     * @param password Bluetooth password (can be {@code null}).
-     *
-     * @see #DigiPointDevice(Context, String, String)
-     * @see BluetoothDevice
-     */
-    public DigiPointDevice(Context context, BluetoothDevice bleDevice, String password) {
-        super(XBee.createConnectionInterface(context, bleDevice));
-
-        this.bluetoothPassword = password;
-    }
-
-    /**
-     * Class constructor. Instantiates a new {@code DigiPointDevice} object for
-     * Android with the given parameters.
-     *
-     * <p>This constructor uses the Android Bluetooth Low Energy API to
-     * communicate with the devices.</p>
-     *
-     * <p>The Bluetooth password must be provided before calling the
-     * {@link #open()} method, either through this constructor or the
-     * {@link #setBluetoothPassword(String)} method.</p>
-     *
-     * @param context The Android application context.
-     * @param deviceAddress Address of the Bluetooth device.
-     * @param password Bluetooth password (can be {@code null}).
-     *
-     * @see #DigiPointDevice(Context, BluetoothDevice, String)
-     */
-    public DigiPointDevice(Context context, String deviceAddress, String password) {
-        super(XBee.createConnectionInterface(context, deviceAddress));
-
-        this.bluetoothPassword = password;
     }
 }

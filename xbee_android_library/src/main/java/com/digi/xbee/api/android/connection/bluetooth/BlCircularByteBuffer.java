@@ -32,9 +32,6 @@ import java.io.*;
  * <p>
  * This class is thread safe.
  *
- * @see CircularCharBuffer
- * @see CircularObjectBuffer
- *
  * @author Stephen Ostermiller http://ostermiller.org/contact.pl?regarding=Java+Utilities
  * @since ostermillerutils 1.00.00
  */
@@ -695,9 +692,6 @@ public class BlCircularByteBuffer {
          * all the data has been written rather than throw an IOException.
          *
          * @param cbuf Array of bytes to be written
-         * @throws BufferOverflowException if buffer does not allow blocking writes
-         *   and the buffer is full.  If the exception is thrown, no data
-         *   will have been written since the buffer was set to be non-blocking.
          * @throws IOException if the stream is closed, or the write is interrupted.
          *
          * @since ostermillerutils 1.00.00
@@ -714,9 +708,6 @@ public class BlCircularByteBuffer {
          * @param cbuf Array of bytes
          * @param off Offset from which to start writing bytes
          * @param len - Number of bytes to write
-         * @throws BufferOverflowException if buffer does not allow blocking writes
-         *   and the buffer is full.  If the exception is thrown, no data
-         *   will have been written since the buffer was set to be non-blocking.
          * @throws IOException if the stream is closed, or the write is interrupted.
          *
          * @since ostermillerutils 1.00.00
@@ -769,8 +760,6 @@ public class BlCircularByteBuffer {
          * all the data has been written rather than throw an IOException.
          *
          * @param c number of bytes to be written
-         * @throws BufferOverflowException if buffer does not allow blocking writes
-         *   and the buffer is full.
          * @throws IOException if the stream is closed, or the write is interrupted.
          *
          * @since ostermillerutils 1.00.00
