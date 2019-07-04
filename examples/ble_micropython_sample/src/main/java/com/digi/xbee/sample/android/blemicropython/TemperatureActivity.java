@@ -33,7 +33,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.digi.xbee.api.android.XBeeDevice;
+import com.digi.xbee.api.android.XBeeBLEDevice;
 import com.digi.xbee.api.exceptions.XBeeException;
 import com.digi.xbee.api.listeners.relay.IMicroPythonDataReceiveListener;
 
@@ -47,7 +47,7 @@ public class TemperatureActivity extends AppCompatActivity implements IMicroPyth
     private static final int ACK_TIMEOUT = 5000;
 
     // Variables.
-    private XBeeDevice device;
+    private XBeeBLEDevice device;
 
     private TableLayout tableLayout;
     private TextView temperatureText;

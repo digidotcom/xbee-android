@@ -32,14 +32,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.digi.xbee.api.android.XBeeDevice;
+import com.digi.xbee.api.android.XBeeBLEDevice;
 import com.digi.xbee.api.exceptions.XBeeException;
 import com.digi.xbee.api.utils.HexUtils;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
     // Variables.
-    private XBeeDevice device;
+    private XBeeBLEDevice device;
 
     private EditText shText;
     private EditText slText;

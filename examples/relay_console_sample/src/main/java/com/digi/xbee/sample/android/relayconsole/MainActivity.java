@@ -42,7 +42,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.digi.xbee.api.android.XBeeDevice;
+import com.digi.xbee.api.android.XBeeBLEDevice;
 import com.digi.xbee.api.exceptions.BluetoothAuthenticationException;
 import com.digi.xbee.api.exceptions.XBeeException;
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressBar scanProgress;
 
-    private static XBeeDevice xbeeDevice;
+    private static XBeeBLEDevice xbeeDevice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return The selected and open XBee device.
      */
-    public static XBeeDevice getXBeeDevice() {
+    public static XBeeBLEDevice getXBeeDevice() {
         return xbeeDevice;
     }
 
@@ -229,8 +229,8 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                // Instantiate an XBee device with the Bluetooth device and password.
-                xbeeDevice = new XBeeDevice(MainActivity.this, device, password);
+                // Instantiate an XBee BLE device with the Bluetooth device and password.
+                xbeeDevice = new XBeeBLEDevice(MainActivity.this, device, password);
                 try {
                     // Open the connection with the device.
                     xbeeDevice.open();

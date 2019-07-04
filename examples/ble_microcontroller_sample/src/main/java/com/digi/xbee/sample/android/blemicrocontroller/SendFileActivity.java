@@ -35,7 +35,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.digi.xbee.api.android.XBeeDevice;
+import com.digi.xbee.api.android.XBeeBLEDevice;
 import com.digi.xbee.api.exceptions.XBeeException;
 import com.digi.xbee.api.listeners.relay.ISerialDataReceiveListener;
 import com.digi.xbee.api.packet.XBeeChecksum;
@@ -67,7 +67,7 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
     private static final String PERCENTAGE_FORMAT = "%d %%";
 
     // Variables.
-    private XBeeDevice device;
+    private XBeeBLEDevice device;
 
     private Button sendFileButton;
     private LinearLayout progressLayout;

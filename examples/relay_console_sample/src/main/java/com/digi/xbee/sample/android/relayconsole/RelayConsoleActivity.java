@@ -40,7 +40,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.digi.xbee.api.android.XBeeDevice;
+import com.digi.xbee.api.android.XBeeBLEDevice;
 import com.digi.xbee.api.exceptions.XBeeException;
 import com.digi.xbee.api.listeners.IUserDataRelayReceiveListener;
 import com.digi.xbee.api.models.XBeeLocalInterface;
@@ -51,7 +51,7 @@ import java.util.ArrayList;
 public class RelayConsoleActivity extends AppCompatActivity {
 
     // Variables.
-    private XBeeDevice device;
+    private XBeeBLEDevice device;
 
     private UserDataRelayListener relayListener;
 
