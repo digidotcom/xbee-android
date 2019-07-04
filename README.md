@@ -1,18 +1,20 @@
-XBee Library for Android
-========================
+# XBee Library for Android [ ![Download](https://api.bintray.com/packages/digidotcom/maven/xbee-android/images/download.svg) ](https://bintray.com/digidotcom/maven/xbee-android/_latestVersion)
 
 This project contains the source code of the XBee Library for Android, an
-easy-to-use API developed in Java that allows you to interact with Digi
-International's [XBee](http://www.digi.com/xbee/) radio frequency (RF) modules.
-This source has been contributed by [Digi International](http://www.digi.com).
+easy-to-use API built on top of the
+[XBee Java Library](https://github.com/digidotcom/xbee-java).
 
-The XBee library for Android is a layer of the
-[XBee Java Library](https://github.com/digidotcom/XBeeJavaLibrary) and provides
-support to connect and communicate with XBee modules in Android devices. The
-connection with XBee modules can be wireless (through the Bluetooth Low Energy
-interface) or serial (through the USB host serial port or Digi's serial port).
-In either case, the library facilitates the development of Android applications
-that interact with XBee modules.
+The XBee Library for Android allows you to create Android applications that
+interact with Digi International's [XBee](http://www.digi.com/xbee/) radio
+frequency (RF) modules. The connection with XBee modules can be wireless
+(through the Bluetooth Low Energy interface) or serial (through the USB host
+serial port or Digi's serial port). In either case, the library facilitates the
+development of Android applications that interact with XBee modules.
+
+The project includes the source code and examples that show how to create
+Android applications that communicate with XBee devices using the available
+APIs. The examples are also available in source code format. The source of the
+project has been contributed by [Digi International](http://www.digi.com).
 
 The main features of the library include:
 
@@ -52,22 +54,23 @@ The main features of the library include:
 * Support for User Data Relay frames, allowing the communication between
   different interfaces (Serial, Bluetooth Low Energy and MicroPython).
 
-Start Here
-----------
+
+## Start Here
 
 As the XBee Library for Android is a layer of the Java one, it is documented as
 part of the XBee Java Library. So, the best place to get started is the
-[XBee Java Library documentation](http://www.digi.com/resources/documentation/digidocs/90001438/Default.htm).
+[XBee Java Library documentation](http://www.digi.com/resources/documentation/digidocs/90001438/#reference/r_xb_java_lib_android.htm).
 
-How to Contribute
------------------
+
+## How to Contribute
 
 The contributing guidelines are in the
-[CONTRIBUTING.md](https://github.com/digidotcom/XBeeAndroidLibrary/blob/master/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/digidotcom/xbee-android/blob/master/CONTRIBUTING.md)
 document.
 
-License
--------
+
+## License
+
 Copyright 2019, Digi International Inc.
 
 This Source Code Form is subject to the terms of the Mozilla Public
