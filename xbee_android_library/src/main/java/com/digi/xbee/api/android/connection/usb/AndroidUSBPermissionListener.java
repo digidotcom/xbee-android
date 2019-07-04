@@ -13,7 +13,7 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF 
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package com.digi.xbee.api.android.connection;
+package com.digi.xbee.api.android.connection.usb;
 
 /**
  * This interface is used as a listener to wait for user permissions after a 

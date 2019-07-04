@@ -35,9 +35,9 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbEndpoint;
 
-import com.digi.xbee.api.android.connection.AndroidUSBInputStream;
-import com.digi.xbee.api.android.connection.AndroidXBeeInterface;
-import com.digi.xbee.api.android.connection.CircularByteBuffer;
+import com.digi.xbee.api.android.connection.usb.AndroidUSBInputStream;
+import com.digi.xbee.api.android.connection.usb.AndroidUSBInterface;
+import com.digi.xbee.api.android.connection.usb.CircularByteBuffer;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({System.class, AndroidUSBInputStream.class})
@@ -52,7 +52,7 @@ public class AndroidUSBInputStreamTest {
 	// Variables.
 	private UsbDeviceConnection usbConnection;
 	private UsbEndpoint receiveEndPoint;
-	private AndroidXBeeInterface androidInterface;
+	private AndroidUSBInterface androidInterface;
 
 	private CircularByteBuffer circularBuffer;
 
@@ -64,7 +64,7 @@ public class AndroidUSBInputStreamTest {
 		Mockito.when(usbConnection.bulkTransfer(Mockito.any(UsbEndpoint.class), Mockito.any(byte[].class),
 				Mockito.anyInt(), Mockito.anyInt())).thenReturn(DATA.length);
 		receiveEndPoint = Mockito.mock(UsbEndpoint.class);
-		androidInterface = Mockito.mock(AndroidXBeeInterface.class);
+		androidInterface = Mockito.mock(AndroidUSBInterface.class);
 
 		is = PowerMockito.spy(new AndroidUSBInputStream(androidInterface, receiveEndPoint, usbConnection));
 

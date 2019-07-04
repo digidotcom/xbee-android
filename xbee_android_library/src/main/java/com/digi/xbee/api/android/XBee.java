@@ -18,8 +18,8 @@ package com.digi.xbee.api.android;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 
-import com.digi.xbee.api.android.connection.AndroidUSBPermissionListener;
-import com.digi.xbee.api.android.connection.AndroidXBeeInterface;
+import com.digi.xbee.api.android.connection.usb.AndroidUSBInterface;
+import com.digi.xbee.api.android.connection.usb.AndroidUSBPermissionListener;
 import com.digi.xbee.api.android.connection.bluetooth.AndroidBluetoothInterface;
 import com.digi.xbee.api.android.connection.serial.SerialPortDigiAndroid;
 import com.digi.xbee.api.connection.IConnectionInterface;
@@ -71,7 +71,7 @@ public class XBee {
      * @see AndroidUSBPermissionListener
      */
     public static IConnectionInterface createConnectiontionInterface(Context context, int baudRate, AndroidUSBPermissionListener permissionListener) {
-        return new AndroidXBeeInterface(context, baudRate, permissionListener);
+        return new AndroidUSBInterface(context, baudRate, permissionListener);
     }
 
     /**

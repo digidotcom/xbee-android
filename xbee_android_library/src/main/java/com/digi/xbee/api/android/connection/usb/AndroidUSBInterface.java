@@ -13,7 +13,7 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF 
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package com.digi.xbee.api.android.connection;
+package com.digi.xbee.api.android.connection.usb;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,17 +43,16 @@ import com.digi.xbee.api.exceptions.InvalidInterfaceException;
 import com.digi.xbee.api.exceptions.PermissionDeniedException;
 
 /**
- * This class represents a serial port using the RxTx library to communicate
- * with it.
+ * This class represents a communication interface with XBee devices over USB.
  */
-public class AndroidXBeeInterface implements IConnectionInterface {
+public class AndroidUSBInterface implements IConnectionInterface {
 
 	// Constants.
 	private static final int VID = 0x0403;
 	private static final int[] FTDI_PIDS = {
 			0x6001, // FT232 and FT245
 			//0x6010, // FT2232
-			//0x6011, // FT4232
+			0x6011, // FT4232
 			//0x6014, // FT232H
 			0x6015, // FT-X series
 			//0x601C, //FT4222H
@@ -94,7 +93,7 @@ public class AndroidXBeeInterface implements IConnectionInterface {
 	private Logger logger;
 
 	/**
-	 * Class constructor. Instantiates a new {@code AndroidXBeeInterface} object
+	 * Class constructor. Instantiates a new {@code AndroidUSBInterface} object
 	 * with the given parameters.
 	 * 
 	 * <p>This constructor requires that methods calling {@link #open()}
@@ -108,17 +107,17 @@ public class AndroidXBeeInterface implements IConnectionInterface {
 	 * @throws IllegalArgumentException if {@code baudRate < 1}.
 	 * @throws NullPointerException if {@code context == null}.
 	 * 
-	 * @see #AndroidXBeeInterface(Context, int)
-	 * @see #AndroidXBeeInterface(Context, int, AndroidUSBPermissionListener)
-	 * @see #AndroidXBeeInterface(Context, int, UsbDevice, AndroidUSBPermissionListener)
+	 * @see #AndroidUSBInterface(Context, int)
+	 * @see #AndroidUSBInterface(Context, int, AndroidUSBPermissionListener)
+	 * @see #AndroidUSBInterface(Context, int, UsbDevice, AndroidUSBPermissionListener)
 	 * @see UsbDevice
 	 */
-	public AndroidXBeeInterface(Context context, int baudRate, UsbDevice usbDevice) {
+	public AndroidUSBInterface(Context context, int baudRate, UsbDevice usbDevice) {
 		this(context, baudRate, usbDevice, null);
 	}
 
 	/**
-	 * Class constructor. Instantiates a new {@code AndroidXBeeInterface} object
+	 * Class constructor. Instantiates a new {@code AndroidUSBInterface} object
 	 * with the given parameters.
 	 * 
 	 * <p>This constructor requires all methods calling {@link #open()} 
@@ -131,16 +130,16 @@ public class AndroidXBeeInterface implements IConnectionInterface {
 	 * @throws IllegalArgumentException if {@code baudRate < 1}.
 	 * @throws NullPointerException if {@code context == null}.
 	 * 
-	 * @see #AndroidXBeeInterface(Context, int, AndroidUSBPermissionListener)
-	 * @see #AndroidXBeeInterface(Context, int, UsbDevice)
-	 * @see #AndroidXBeeInterface(Context, int, UsbDevice, AndroidUSBPermissionListener)
+	 * @see #AndroidUSBInterface(Context, int, AndroidUSBPermissionListener)
+	 * @see #AndroidUSBInterface(Context, int, UsbDevice)
+	 * @see #AndroidUSBInterface(Context, int, UsbDevice, AndroidUSBPermissionListener)
 	 */
-	public AndroidXBeeInterface(Context context, int baudRate) {
+	public AndroidUSBInterface(Context context, int baudRate) {
 		this(context, baudRate, null, null);
 	}
 
 	/**
-	 * Class constructor. Instantiates a new {@code AndroidXBeeInterface} object
+	 * Class constructor. Instantiates a new {@code AndroidUSBInterface} object
 	 * with the given parameters.
 	 * 
 	 * @param context The Android context.
@@ -152,17 +151,17 @@ public class AndroidXBeeInterface implements IConnectionInterface {
 	 * @throws IllegalArgumentException if {@code baudRate < 1}.
 	 * @throws NullPointerException if {@code context == null}.
 	 * 
-	 * @see #AndroidXBeeInterface(Context, int)
-	 * @see #AndroidXBeeInterface(Context, int, UsbDevice)
-	 * @see #AndroidXBeeInterface(Context, int, UsbDevice, AndroidUSBPermissionListener)
+	 * @see #AndroidUSBInterface(Context, int)
+	 * @see #AndroidUSBInterface(Context, int, UsbDevice)
+	 * @see #AndroidUSBInterface(Context, int, UsbDevice, AndroidUSBPermissionListener)
 	 * @see AndroidUSBPermissionListener
 	 */
-	public AndroidXBeeInterface(Context context, int baudRate, AndroidUSBPermissionListener permissionListener) {
+	public AndroidUSBInterface(Context context, int baudRate, AndroidUSBPermissionListener permissionListener) {
 		this(context, baudRate, null, permissionListener);
 	}
 	
 	/**
-	 * Class constructor. Instantiates a new {@code AndroidXBeeInterface} object
+	 * Class constructor. Instantiates a new {@code AndroidUSBInterface} object
 	 * with the given parameters.
 	 * 
 	 * @param context The Android context.
@@ -175,13 +174,13 @@ public class AndroidXBeeInterface implements IConnectionInterface {
 	 * @throws IllegalArgumentException if {@code baudRate < 1}.
 	 * @throws NullPointerException if {@code context == null}.
 	 * 
-	 * @see #AndroidXBeeInterface(Context, int)
-	 * @see #AndroidXBeeInterface(Context, int, AndroidUSBPermissionListener)
-	 * @see #AndroidXBeeInterface(Context, int, UsbDevice)
+	 * @see #AndroidUSBInterface(Context, int)
+	 * @see #AndroidUSBInterface(Context, int, AndroidUSBPermissionListener)
+	 * @see #AndroidUSBInterface(Context, int, UsbDevice)
 	 * @see AndroidUSBPermissionListener
 	 * @see UsbDevice
 	 */
-	public AndroidXBeeInterface(Context context, int baudRate, UsbDevice usbDevice, AndroidUSBPermissionListener permissionListener) {
+	public AndroidUSBInterface(Context context, int baudRate, UsbDevice usbDevice, AndroidUSBPermissionListener permissionListener) {
 		if (context == null)
 			throw new NullPointerException("Android context cannot be null.");
 		if (baudRate < 1)
@@ -192,7 +191,7 @@ public class AndroidXBeeInterface implements IConnectionInterface {
 		this.permissionListener = permissionListener;
 		this.usbDevice = usbDevice;
 		this.usbManager = (UsbManager)context.getSystemService(Context.USB_SERVICE);
-		this.logger = LoggerFactory.getLogger(AndroidXBeeInterface.class);
+		this.logger = LoggerFactory.getLogger(AndroidUSBInterface.class);
 	}
 
 	/**

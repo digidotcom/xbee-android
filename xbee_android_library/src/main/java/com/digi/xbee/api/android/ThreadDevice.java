@@ -17,7 +17,7 @@ package com.digi.xbee.api.android;
 
 import android.content.Context;
 
-import com.digi.xbee.api.android.connection.AndroidUSBPermissionListener;
+import com.digi.xbee.api.android.connection.usb.AndroidUSBPermissionListener;
 import com.digi.xbee.api.connection.serial.SerialPortParameters;
 
 /**

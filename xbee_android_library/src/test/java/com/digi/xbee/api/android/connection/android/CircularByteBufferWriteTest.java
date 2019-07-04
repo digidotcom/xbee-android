@@ -15,7 +15,7 @@
  */
 package com.digi.xbee.api.android.connection.android;
 
-import com.digi.xbee.api.android.connection.CircularByteBuffer;
+import com.digi.xbee.api.android.connection.usb.CircularByteBuffer;
 
 import org.junit.Before;
 import org.junit.Test;

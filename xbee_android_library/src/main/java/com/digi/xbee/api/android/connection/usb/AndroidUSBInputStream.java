@@ -13,7 +13,7 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF 
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package com.digi.xbee.api.android.connection;
+package com.digi.xbee.api.android.connection.usb;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,7 +50,7 @@ public class AndroidUSBInputStream extends InputStream {
 
 	private CircularByteBuffer readBuffer;
 
-	private AndroidXBeeInterface androidInterface;
+	private AndroidUSBInterface androidInterface;
 
 	private Logger logger;
 	
@@ -63,11 +63,11 @@ public class AndroidUSBInputStream extends InputStream {
 	 * @param readEndpoint The USB end point to use to read data from.
 	 * @param connection The USB connection to use to read data from.
 	 * 
-	 * @see AndroidXBeeInterface
+	 * @see AndroidUSBInterface
 	 * @see UsbDeviceConnection
 	 * @see UsbEndpoint
 	 */
-	public AndroidUSBInputStream(AndroidXBeeInterface androidInterface, UsbEndpoint readEndpoint, UsbDeviceConnection connection) {
+	public AndroidUSBInputStream(AndroidUSBInterface androidInterface, UsbEndpoint readEndpoint, UsbDeviceConnection connection) {
 		this.usbConnection = connection;
 		this.receiveEndPoint = readEndpoint;
 		this.androidInterface = androidInterface;

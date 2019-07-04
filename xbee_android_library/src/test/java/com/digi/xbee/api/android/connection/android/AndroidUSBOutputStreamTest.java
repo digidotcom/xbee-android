@@ -24,7 +24,7 @@ import org.powermock.api.mockito.PowerMockito;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbEndpoint;
 
-import com.digi.xbee.api.android.connection.AndroidUSBOutputStream;
+import com.digi.xbee.api.android.connection.usb.AndroidUSBOutputStream;
 
 public class AndroidUSBOutputStreamTest {
 
