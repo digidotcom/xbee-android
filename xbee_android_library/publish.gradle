@@ -1,0 +1,136 @@
+//-----------------------------------------------
+//----------- Bintray configuration -------------
+//-----------------------------------------------
+// Library will be available as 'publishedGroupId:artifact:libraryVersion'
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'xbee-android'
+    organization = 'digidotcom'
+
+    publishedGroupId = 'com.digi.xbee'
+    libraryName = 'xbee-android'
+    artifact = 'xbee-android-lib'
+
+    libraryVersion = project.version
+
+    libraryDescription = 'This project contains the source code of the XBee ' +
+            'Library for Android, an easy-to-use API built on top of the ' +
+            'XBee Java Library. This library allows you to create Android ' +
+            'applications that interact with Digi International\'s XBee ' +
+            'radio frequency (RF) modules. This source has been contributed ' +
+            'by Digi International. The project includes the source code ' +
+            'and examples that show how to create Android applications that ' +
+            'communicate with XBee devices using the available APIs. The ' +
+            'examples are also available in source code format.'
+
+    siteUrl = 'https://github.com/digidotcom/xbee-android'
+    gitUrl = 'https://github.com/digidotcom/xbee-android.git'
+    issueUrl = 'https://github.com/digidotcom/xbee-android/issues'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+//-----------------------------------------------
+//-------------------- Maven --------------------
+//-----------------------------------------------
+apply plugin: 'com.github.dcendents.android-maven'
+
+// Maven Group ID for the artifact
+group = publishedGroupId
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                groupId publishedGroupId
+                artifactId artifact
+
+                name libraryName
+                description libraryDescription
+                url siteUrl
+
+                licenses {
+                    license {
+                        name licenseName
+                        url licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id 'diescalo'
+                        name 'Diego Escalona'
+                        email 'diego.escalona@digi.com'
+                    }
+                    developer {
+                        id 'rubenmoral'
+                        name 'Rubén Moral'
+                        email 'ruben.moral@digi.com'
+                    }
+                    developer {
+                        id 'hgonzaledigi'
+                        name 'Héctor González'
+                        email 'hector.gonzalez@digi.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+//-----------------------------------------------
+//--------------- Bintray upload ----------------
+//-----------------------------------------------
+apply plugin: 'com.jfrog.bintray'
+
+// Bintray
+Properties properties = new Properties()
+if (project.rootProject.file('local.properties').exists()) {
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+}
+
+bintray {
+    // First, try to get the user and key from command line arguments.
+    try {
+        user = property('user')
+    } catch (Exception ignored) {}
+    try {
+        key = property('key')
+    } catch (Exception ignored) {}
+
+    // If they are not provided that way, try get them from the 'local.properties' file.
+    if (user == null && properties.getProperty("bintray.user") != null)
+        user = properties.getProperty("bintray.user")
+    if (key == null && properties.getProperty("bintray.key") != null)
+        key = properties.getProperty("bintray.key")
+
+    // Specify the files to upload.
+    configurations = ['archives']
+
+    publish = false
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        userOrg = organization
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        issueTrackerUrl = issueUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        labels = []
+        publicDownloadNumbers = true
+        version {
+            name = libraryVersion
+            vcsTag = libraryVersion
+            desc = libraryVersion
+        }
+    }
+}

@@ -1,0 +1,38 @@
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+    destinationDir = file("${buildDir}/release")
+}
+
+task javadoc(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+
+}
+
+afterEvaluate {
+    javadoc.classpath += files(android.libraryVariants.collect { variant ->
+        Task javaCompileTask
+        if (variant.hasProperty('javaCompileProvider')) {
+            // Android 3.3.0+
+            javaCompileTask = variant.javaCompileProvider.get()
+        } else {
+            // Older Android
+            javaCompileTask = variant.javaCompile
+        }
+        javaCompileTask.classpath.files
+    })
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+    destinationDir = file("${buildDir}/release")
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
