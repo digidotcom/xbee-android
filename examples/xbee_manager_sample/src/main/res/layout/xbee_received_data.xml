@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="3dp">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/frames_fragment_title"
+        android:textColor="@color/dark_gray"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="57">
+
+            <TextView
+                android:id="@+id/received_packets_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="0px"
+                android:text="@string/received_xbee_packets_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/received_packets_title"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_red"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:text="@string/clear"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/received_packets_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/received_packets_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                tools:ignore="SmallSp" />
+
+            <RelativeLayout
+                android:id="@+id/packet_list_header"
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/received_packets_text"
+                android:layout_marginTop="3dp"
+                android:background="@color/very_dark_gray">
+                <!-- Date -->
+                <TextView
+                    android:id="@+id/date_header"
+                    android:layout_width="69dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="3dp"
+                    android:text="@string/header_date"
+                    android:textColor="@color/light_gray"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp" />
+                <!-- Separator -->
+                <View
+                    android:id="@+id/separator_1"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@id/date_header"
+                    android:background="@color/light_gray" />
+                <!-- Packet type -->
+                <TextView
+                    android:id="@+id/header_packet_type"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_toEndOf="@id/separator_1"
+                    android:text="@string/header_type"
+                    android:textColor="@color/light_gray"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp" />
+                <!-- Separator -->
+                <View
+                    android:id="@+id/separator_2"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@id/header_packet_type"
+                    android:background="@color/light_gray" />
+                <!-- Source address -->
+                <TextView
+                    android:id="@+id/header_source_address"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_toEndOf="@id/separator_2"
+                    android:text="@string/header_source_address"
+                    android:textColor="@color/light_gray"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp" />
+                <!-- Separator -->
+                <View
+                    android:id="@+id/separator_3"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@id/header_source_address"
+                    android:background="@color/light_gray" />
+                <!-- PAcket data -->
+                <TextView
+                    android:id="@+id/header_packet_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_toEndOf="@id/separator_3"
+                    android:ellipsize="end"
+                    android:text="@string/header_packet_data"
+                    android:textColor="@color/light_gray"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/received_packets_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/packet_list_header"
+                android:background="@color/light_gray"
+                android:choiceMode="singleChoice"
+                android:overScrollMode="never" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/dark_gray" />
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0px"
+            android:layout_weight="41">
+
+            <TextView
+                android:id="@+id/received_xbee_packet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/selected_xbee_packet_title"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignTop="@+id/date_label"
+                android:layout_below="@id/received_xbee_packet_title"
+                android:background="@color/light_gray" />
+
+            <TextView
+                android:id="@id/date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/received_xbee_packet_title"
+                android:layout_marginStart="5dp"
+                android:paddingTop="3dp"
+                android:text="@string/received_date_short"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/received_xbee_packet_title"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/packet_type_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_label"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/type_short"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/packet_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/date_label"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/source_address_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/packet_type_label"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/source_address_short"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/source_address_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/packet_type_label"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/packet_data_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/source_address_label"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/packet_data"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/horizontal_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/packet_data_label"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/dark_gray" />
+
+            <TextView
+                android:id="@+id/packet_data_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/horizontal_separator"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

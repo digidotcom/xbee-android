@@ -17,13 +17,18 @@
 package com.digi.xbee.sample.android.blemicrocontroller;
 
 import android.Manifest;
+import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -142,11 +147,11 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode != PICKFILE_RESULT_CODE || data == null || data.getData() == null)
+        if (requestCode != PICKFILE_RESULT_CODE || data == null)
             return;
 
-        final String filePath = data.getData().getPath();
-        if (filePath == null)
+        final Uri fileUri = data.getData();
+        if (fileUri == null)
             return;
 
         // Create a thread to send the file.
@@ -159,12 +164,12 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
                     public void run() {
                         sendFileButton.setEnabled(false);
                         progressLayout.setAlpha(1);
-                        sendingFileText.setText(filePath);
+                        sendingFileText.setText(getFileName(fileUri));
                     }
                 });
 
                 // Start the send process.
-                sendFile(new File(filePath));
+                sendFile(fileUri);
 
                 // Post-configure the UI.
                 runOnUiThread(new Runnable() {
@@ -190,17 +195,24 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
     }
 
     /**
-     * Sends the given file split in blocks to the XBee serial interface.
+     * Sends the file corresponding to the given Uri split in blocks to the
+     * XBee serial interface.
      *
-     * @param file File to send.
+     * @param fileUri Uri corresponding to the file to send.
      */
-    private void sendFile(File file) {
+    private void sendFile(Uri fileUri) {
         try {
+            String fileName = getFileName(fileUri);
+
             // Send the 'START' message.
-            if (!sendDataAndWaitResponse(String.format(MSG_START, file.getName()).getBytes()))
+            if (!sendDataAndWaitResponse(String.format(MSG_START, fileName).getBytes()))
                 return;
 
-            ArrayList<byte[]> fileBlocks = getFileBlocks(file);
+            ArrayList<byte[]> fileBlocks = getFileBlocks(fileUri);
+            if (fileBlocks == null) {
+                showError(getResources().getString(R.string.error_opening_file, fileName));
+                return;
+            }
             for (int i = 0; i < fileBlocks.size(); i++) {
                 byte[] block = fileBlocks.get(i);
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -260,15 +272,16 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
     }
 
     /**
-     * Splits the given file in blocks.
+     * Splits the given file corresponding to the given Uri in blocks.
      *
-     * @param file File to split.
+     * @param fileUri Uri corresponding to the file to split.
      *
-     * @return List of blocks.
+     * @return List of blocks, {@code null} if there is a problem opening the
+     *         file.
      */
-    private ArrayList<byte[]> getFileBlocks(File file) {
+    private ArrayList<byte[]> getFileBlocks(Uri fileUri) {
         ArrayList<byte[]> fileBlocks = new ArrayList<>();
-        try (BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file))) {
+        try (BufferedInputStream inputStream = new BufferedInputStream(getContentResolver().openInputStream(fileUri))) {
             byte[] blockBuffer = new byte[BLOCK_SIZE];
             int readBytes = inputStream.read(blockBuffer, 0, blockBuffer.length);
             while (readBytes > 0) {
@@ -279,6 +292,7 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
         return fileBlocks;
     }
@@ -379,5 +393,34 @@ public class SendFileActivity extends AppCompatActivity implements ISerialDataRe
                         }).show();
             }
         }
+    }
+
+    /**
+     * Returns the name of the file corresponding to the given Uri.
+     *
+     * @param uri The Uri to extract the file name.
+     *
+     * @return The name of the file corresponding to the given Uri.
+     */
+    public String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        if (result == null) {
+            result = uri.getPath();
+            int cut = result.lastIndexOf('/');
+            if (cut != -1) {
+                result = result.substring(cut + 1);
+            }
+        }
+        return result;
     }
 }

@@ -19,6 +19,7 @@
     <string name="file_sent_successfully">File sent successfully</string>
     <string name="error_sending_file_title">Error sending file</string>
     <string name="error_sending_file_ack">Could not send the file, ACK not received</string>
+    <string name="error_opening_file">Could not open file %1$s</string>
 
     <string name="disconnect_device_title">Disconnect device</string>
     <string name="disconnect_device_description">Do you want to disconnect the XBee device?</string>
