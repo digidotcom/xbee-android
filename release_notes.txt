@@ -1,0 +1,93 @@
+                            XBee Library for Android
+
+                                  Release Notes
+                                   Build 1.0.0
+                                  5 July, 2019
+ 
+                      Copyright 2019, Digi International Inc.
+                               http://www.digi.com
+ 
+ Introduction
+-------------------------------------------------------------------------------
+
+ This document provides the latest release information for the XBee Library for
+ Android, which allows customers to easily develop Android applications that
+ communicate with XBee modules.
+
+ XBee Library for Android v1.0.0, July 2019
+-------------------------------------------------------------------------------
+  1. Supported Hardware:
+      * XBee modules:
+        * XBee/XBee-PRO RF Module Family
+          * XBee3 (Zigbee 3, DigiMesh 2.4, 802.15.4 and Cellular)
+          * XBee Cellular
+          * XBee 802.15.4
+          * XBee-PRO 802.15.4
+          * XBee ZB
+          * XBee-PRO ZB
+          * XBee ZB SMT
+          * XBee-PRO ZB SMT
+          * XBee-PRO 900HP
+          * XBee-PRO 900
+          * XBee-PRO DigiMesh 900
+          * XBee DigiMesh 2.4
+          * XBee-PRO DigiMesh 2.4
+          * XBee-PRO 868
+          * XBee 865LP
+          * XBee 868LP
+      * Android:
+        * Android devices running API level 19 (KitKat) or greater
+
+ 2. Changes with respect to previous version:
+      * Library features (most of them are inherit from the XBee Java Library):
+        * Support for ZigBee, 802.15.4, DigiMesh, Point-to-Multipoint, Wi-Fi,
+          Cellular and Thread XBee devices.
+        * Support for API and API escaped operating modes.
+        * Support for different communication interfaces with the XBee device.
+          These include:
+          * Bluetooth Low Energy.
+          * USB host.
+          * Digi's serial port.
+        * Management of local (attached to the Android device) and remote XBee
+          device objects.
+        * Discovery of remote XBee devices that are associated to the same
+          network as the local one.
+        * Configuration of local and remote XBee devices:
+          * Configure common parameters with specific setters and getters.
+          * Configure any other parameter with generic methods.
+          * Execute AT commands.
+          * Apply configuration changes.
+          * Write configuration changes.
+          * Reset the device.
+        * Transmission of data to all the XBee devices of the network or to a
+          specific one.
+        * Reception of data from remote XBee devices:
+          * Data polling.
+          * Data reception callback.
+        * Reception of network status changes related to the local XBee device.
+        * IO lines management:
+          * Configure IO lines
+          * Set IO line value.
+          * Read IO line value.
+          * Receive IO data samples from any remote XBee device of the network.
+        * Support for explicit frames and application layer fields (Source
+          endpoint, Destination endpoint, Profile ID, and Cluster ID).
+        * Support for User Data Relay frames, allowing the communication
+          between different interfaces (Serial, Bluetooth Low Energy and
+          MicroPython).
+
+      * Android application examples demonstrating some API specific features.
+        * Configure XBee devices over Bluetooth Low Energy
+        * Send and receive data over Bluetooth Low Energy to a micro-controller
+          connected to the XBee serial interface.
+        * Send and receive data over Bluetooth Low Energy to the XBee
+          MicroPython interface.
+        * Communicate with XBee devices over Bluetooth Low Energy and send data
+          to other XBee interfaces
+        * Usage of all the available options using a local XBee module
+          connected to your Android device over USB host or serial interface.
+
+      * Comprehensive online documentation including:
+        * Getting Started Guide.
+        * Users Guide.
+        * API Reference Manual.
