@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 // Global library settings (used by all Gradle scripts)
 version = "1.0.0"
-archivesBaseName = 'xbee-android-lib'
+archivesBaseName = 'xbee-android-library'
 
 android {
     compileSdkVersion 28

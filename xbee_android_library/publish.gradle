@@ -9,7 +9,7 @@ ext {
 
     publishedGroupId = 'com.digi.xbee'
     libraryName = 'xbee-android'
-    artifact = 'xbee-android-lib'
+    artifact = 'xbee-android-library'
 
     libraryVersion = project.version
 
