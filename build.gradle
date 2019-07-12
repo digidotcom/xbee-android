@@ -22,9 +22,6 @@ allprojects {
         maven {
             url 'http://ftp1.digi.com/support/m-repo/'
         }
-        flatDir {
-            dirs 'libs'
-        }
     }
 }
 
