@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    buildToolsVersion "29.0.0"
+
     defaultConfig {
         applicationId "com.digi.xbee.sample.android.xbeemanager"
         minSdkVersion 22
@@ -9,11 +11,16 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+
+    lintOptions {
+        warning 'InvalidPackage'
     }
 }
 

@@ -4,14 +4,12 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
 
-
     defaultConfig {
         applicationId "com.digi.xbee.sample.android.blemicrocontroller"
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
     }
 
     buildTypes {
@@ -21,6 +19,9 @@ android {
         }
     }
 
+    lintOptions {
+        warning 'InvalidPackage'
+    }
 }
 
 dependencies {
