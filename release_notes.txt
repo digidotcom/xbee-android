@@ -2,7 +2,7 @@
 
                                   Release Notes
                                    Build 1.0.0
-                                  5 July, 2019
+                                  15 July, 2019
  
                       Copyright 2019, Digi International Inc.
                                http://www.digi.com
