@@ -302,9 +302,6 @@ public class AndroidBluetoothInterface extends AbstractBluetoothInterface {
 		} catch (InterruptedException | ShortBufferException e) {
 			logger.error(e.getMessage(), e);
 		}
-
-		if (!dataWritten)
-			logger.error("Could not write data in the TX characteristic");
 	}
 
 	@Override
