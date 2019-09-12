@@ -19,6 +19,7 @@ package com.digi.xbee.sample.android.xbeemanager.managers;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.hardware.usb.UsbDevice;
 
 import com.digi.xbee.sample.android.xbeemanager.XBeeConstants;
 import com.digi.xbee.api.RemoteXBeeDevice;
@@ -66,6 +67,19 @@ public class XBeeManager {
 		this.baudRate = baudRate;
 		this.port = null;
 		localDevice = new XBeeDevice(context, baudRate);
+	}
+
+	/**
+	 * Creates the local XBee Device using the Android USB Host API with the
+	 * given baud rate and the specified UsbDevice handle.
+	 *
+	 * @param baudRate Baud rate to use in the XBee Connection.
+	 * @param usbDevice UsbDevice handle to use for the XBee connection.
+	 */
+	public void createXBeeDevice(int baudRate, UsbDevice usbDevice) {
+		this.baudRate = baudRate;
+		this.port = null;
+		localDevice = new XBeeDevice(context, baudRate, usbDevice);
 	}
 	
 	/**
