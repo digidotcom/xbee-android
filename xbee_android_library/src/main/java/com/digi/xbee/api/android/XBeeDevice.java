@@ -16,6 +16,7 @@
 package com.digi.xbee.api.android;
 
 import android.content.Context;
+import android.hardware.usb.UsbDevice;
 
 import com.digi.xbee.api.android.connection.usb.AndroidUSBPermissionListener;
 import com.digi.xbee.api.connection.serial.SerialPortParameters;
@@ -62,6 +63,28 @@ public class XBeeDevice extends com.digi.xbee.api.XBeeDevice {
      *
      * @param context The Android context.
      * @param baudRate The USB connection baud rate.
+     * @param usbDevice The explicit UsbDevice handle to use
+     *
+     * @throws IllegalArgumentException if {@code baudRate < 1}.
+     * @throws NullPointerException if {@code context == null}.
+     *
+     * @see #XBeeDevice(Context, int, AndroidUSBPermissionListener)
+     * @see #XBeeDevice(Context, String, int)
+     * @see #XBeeDevice(Context, String, SerialPortParameters)
+     */
+    public XBeeDevice(Context context, int baudRate, UsbDevice usbDevice) {
+        super(XBee.createConnectionInterface(context, baudRate, usbDevice));
+    }
+
+    /**
+     * Class constructor. Instantiates a new {@code XBeeDevice} object for
+     * Android with the given parameters.
+     *
+     * <p>This constructor uses the Android USB host interface API to
+     * communicate with the devices.</p>
+     *
+     * @param context The Android context.
+     * @param baudRate The USB connection baud rate.
      * @param permissionListener The USB permission listener that will be
      *                           notified when user grants USB permissions.
      *
@@ -75,6 +98,31 @@ public class XBeeDevice extends com.digi.xbee.api.XBeeDevice {
      */
     public XBeeDevice(Context context, int baudRate, AndroidUSBPermissionListener permissionListener) {
         super(XBee.createConnectiontionInterface(context, baudRate, permissionListener));
+    }
+
+    /**
+     * Class constructor. Instantiates a new {@code XBeeDevice} object for
+     * Android with the given parameters.
+     *
+     * <p>This constructor uses the Android USB host interface API to
+     * communicate with the devices.</p>
+     *
+     * @param context The Android context.
+     * @param baudRate The USB connection baud rate.
+     * @param permissionListener The USB permission listener that will be
+     *                           notified when user grants USB permissions.
+     * @param usbDevice The explicit UsbDevice to use
+     *
+     * @throws IllegalArgumentException if {@code baudRate < 1}.
+     * @throws NullPointerException if {@code context == null}.
+     *
+     * @see #XBeeDevice(Context, int)
+     * @see #XBeeDevice(Context, String, int)
+     * @see #XBeeDevice(Context, String, SerialPortParameters)
+     * @see AndroidUSBPermissionListener
+     */
+    public XBeeDevice(Context context, int baudRate, UsbDevice usbDevice, AndroidUSBPermissionListener permissionListener) {
+        super(XBee.createConnectionInterface(context, baudRate, usbDevice, permissionListener));
     }
 
     /**
