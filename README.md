@@ -1,4 +1,4 @@
-# XBee Library for Android [ ![Download](https://api.bintray.com/packages/digidotcom/maven/xbee-android/images/download.svg) ](https://bintray.com/digidotcom/maven/xbee-android/_latestVersion)
+# XBee Library for Android [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.digi.xbee/xbee-android-library/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.digi.xbee/xbee-android-library)
 
 This project contains the source code of the XBee Library for Android, an
 easy-to-use API built on top of the
@@ -71,7 +71,7 @@ document.
 
 ## License
 
-Copyright 2019, Digi International Inc.
+Copyright 2019-2021, Digi International Inc.
 
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
