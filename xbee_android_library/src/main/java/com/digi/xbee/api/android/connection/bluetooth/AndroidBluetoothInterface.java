@@ -25,6 +25,8 @@ import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import com.digi.xbee.api.connection.bluetooth.AbstractBluetoothInterface;
 import com.digi.xbee.api.exceptions.InvalidInterfaceException;
@@ -131,6 +133,11 @@ public class AndroidBluetoothInterface extends AbstractBluetoothInterface {
 
 		logger = LoggerFactory.getLogger(AndroidBluetoothInterface.class);
 		bleGattCallback = new BLEGattCallback();
+	}
+
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+	public void requestConnectionPriority(int connectionPriority) {
+		bluetoothGatt.requestConnectionPriority(connectionPriority);
 	}
 
 	@Override
