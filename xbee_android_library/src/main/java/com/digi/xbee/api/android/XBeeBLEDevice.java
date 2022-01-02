@@ -17,8 +17,11 @@ package com.digi.xbee.api.android;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import com.digi.xbee.api.AbstractXBeeDevice;
+import com.digi.xbee.api.android.connection.bluetooth.AndroidBluetoothInterface;
 import com.digi.xbee.api.exceptions.TimeoutException;
 import com.digi.xbee.api.exceptions.XBeeException;
 import com.digi.xbee.api.listeners.IPacketReceiveListener;
@@ -83,6 +86,12 @@ public class XBeeBLEDevice extends AbstractXBeeDevice {
         super(XBee.createConnectionInterface(context, deviceAddress));
 
         this.bluetoothPassword = password;
+    }
+
+    public void requestConnectionPriority(int connectionPriority) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ((AndroidBluetoothInterface)super.connectionInterface).requestConnectionPriority(connectionPriority);
+        }
     }
 
     @Override
